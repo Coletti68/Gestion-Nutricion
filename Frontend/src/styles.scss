@@ -1,0 +1,115 @@
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$orange-palette,
+        tertiary: mat.$yellow-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: light;
+  margin: 0;
+  height: 100%;
+  background:
+    radial-gradient(900px 500px at 100% -10%, #f4e65a44, transparent 60%),
+    radial-gradient(700px 400px at -10% 0%, #f28c0018, transparent 55%),
+    #fffdf5;
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+}
+
+mat-card {
+  background: #ffffff !important;
+  border: 1px solid #f1e9d2 !important;
+  box-shadow: 0 4px 14px rgba(242, 140, 0, 0.07) !important;
+  border-radius: 16px !important;
+}
+
+mat-chip, .mat-mdc-chip {
+  border-radius: 20px !important;
+  font-weight: 500;
+}
+
+th, .mat-mdc-header-cell {
+  font-weight: 600 !important;
+  color: #b36a00 !important;
+}
+
+table {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+main h1, main h2 { color: #111; }
+
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #111;
+  --mdc-snackbar-supporting-text-color: #f4e65a;
+}
+
+@media (max-width: 600px) {
+  mat-card { border-radius: 12px !important; }
+}
+
+/* Animaciones compartidas */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transición suave entre pantallas */
+::view-transition-old(root) {
+  animation: salida 0.16s ease both;
+}
+::view-transition-new(root) {
+  animation: entrada 0.22s ease both;
+}
+@keyframes salida {
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.mat-mdc-dialog-container {
+  border-radius: 20px !important;
+}
+
+/* Respeta la preferencia de menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
