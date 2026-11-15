@@ -1,37 +1,16 @@
 {
   "name": "gestion-nutricion",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
+  "version": "1.0.0",
   "private": true,
-  "packageManager": "npm@11.11.0",
-  "dependencies": {
-    "@angular/animations": "^21.2.25",
-    "@angular/cdk": "^21.2.14",
-    "@angular/common": "^21.2.0",
-    "@angular/compiler": "^21.2.0",
-    "@angular/core": "^21.2.0",
-    "@angular/forms": "^21.2.0",
-    "@angular/material": "^21.2.14",
-    "@angular/platform-browser": "^21.2.0",
-    "@angular/router": "^21.2.0",
-    "jspdf": "^4.2.1",
-    "jspdf-autotable": "^5.0.8",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@angular/build": "^21.2.24",
-    "@angular/cli": "^21.2.24",
-    "@angular/compiler-cli": "^21.2.0",
-    "jsdom": "^28.0.0",
-    "prettier": "^3.8.1",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
+  "scripts": {
+    "setup": "npm --prefix Backend install && npm --prefix Frontend install",
+    "dev": "node scripts/dev.js",
+    "dev:api": "npm --prefix Backend run dev",
+    "dev:web": "npm --prefix Frontend start",
+    "build": "npm --prefix Frontend run build",
+    "start": "npm --prefix Backend start",
+    "start:api": "npm --prefix Backend start",
+    "db:setup": "npm --prefix Backend run db:setup",
+    "user:create": "npm --prefix Backend run user:create"
   }
 }

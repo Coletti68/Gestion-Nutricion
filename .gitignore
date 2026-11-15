@@ -8,8 +8,14 @@
 
 # Node
 /node_modules
+**/node_modules
 npm-debug.log
 yarn-error.log
+
+# Variables de entorno y builds
+Backend/.env
+Frontend/dist
+Frontend/.angular
 
 # IDEs and editors
 .idea/
@@ -42,3 +48,5 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# La base MySQL es local: no hay archivos de datos versionados
