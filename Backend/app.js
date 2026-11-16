@@ -58,7 +58,7 @@ app.use('/api', routes);
 app.use('/api', notFound);
 
 // Si existe el build del frontend, se sirve desde el mismo servidor (deploy simple).
-const carpetaFrontend = path.join(__dirname, '..', 'Frontend', 'dist', 'gestion-nutricion', 'browser');
+const carpetaFrontend = path.join(__dirname, 'dist', 'gestion-nutricion', 'browser');
 if (fs.existsSync(carpetaFrontend)) {
   app.use(express.static(carpetaFrontend));
   app.use((req, res, next) => {
